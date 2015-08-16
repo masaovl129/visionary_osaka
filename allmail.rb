@@ -7,7 +7,7 @@ gmail = Gmail.connect('masahiroyoshida1209@gmail.com', '8EejBC7Yj6bQwVkG')
 
 #配置メンバーとメールと日付と店舗
 deploy_member = [
-["DS西大路五条店","8","15","吉田","社員","masao9090@gmail.com","080-9999-2192","吉田","masao9090@gmail.com","","","","",""]
+["DS八戸ノ里駅前店","8","15","吉田","社員","masao9090@gmail.com","080-9999-2192","吉田","masao9090@gmail.com","","","","",""]
 ]
 
 shop = [
@@ -92,7 +92,7 @@ Visionary管理部です
 掲題の件ですが、以下に詳細を記載しますので
 ご確認ください。
 
-詳細はこちら →  #{shop1[3]}
+詳細はこちら →  <a href=#{shop1[3]}>こんにちは</a>
 店舗詳細一覧はこちらから　→　https://docs.google.com/spreadsheets/d/1KP_ZUicBn0Oz9Scz3Tshr9erbgembPaTRGzIdV0Vp8I/edit#gid=0
 
 
