@@ -85,25 +85,25 @@ elsif deploy_member[i][4] != "バ"
 end
 
     gmail.deliver do
-        to "#{deploy_member[i][5]}"
-        cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]},#{deploy_member[i[13]]}"
+        to "#{deploy_member[i][10]}"
+        cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]},#{deploy_member[i][13]}"
         subject "【店舗詳細】【OJT】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
         text_part do
             body "
 おつかれさまです
 Visionary管理部です
 
-#{deploy_member[i][3]}さんへ
+#{deploy_member[i][9]}さんへ
 
 掲題の件ですが、以下に詳細を記載しますので
 ご確認ください。
 
-今回は#{deploy_member[i][9]}さんとの二人稼働です
+今回は#{deploy_member[i][3]}さんとの二人稼働です
 事前に連絡を取り合って勤務行いましょう
 +------+-------------------------+
-| TEL  | #{deploy_member[i][11]} |
+| TEL  | #{deploy_member[i][6]} |
 +------+-------------------------+
-| MAIL | #{deploy_member[i][10]} |
+| MAIL | #{deploy_member[i][5]} |
 +------+-------------------------+
 
 
