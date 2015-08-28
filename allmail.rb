@@ -5,14 +5,12 @@ gmail = Gmail.connect('masahiroyoshida1209@gmail.com', '8EejBC7Yj6bQwVkG')
 
 #メンバーの名前とメールアドレス(いじる必要なし)
 
+#OJTリーダー
+
 #配置メンバーとメールと日付と店舗
 deploy_member = [
-["DS光明池店","9","1","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""],
-["DS光明池店","9","2","東矢　祐輝","バ","7.108.jojo@gmail.com","090-3920-9976","服部　学","hattori_manabu@visionary-inc.jp","","","","",""],
-["DS光明池店","9","3","東矢　祐輝","バ","7.108.jojo@gmail.com","090-3920-9976","服部　学","hattori_manabu@visionary-inc.jp","","","","",""],
-["DS光明池店","9","4","備後　勇貴","社員","bingo_yuuki@visionary-inc.jp","080-1494-1041","萩原　章太","hagihara_shota@visionary-inc.jp","","","","",""],
-["DS光明池店","9","5","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""],
-["DS光明池店","9","6","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""]
+["DS泉の広場店","9","5","高尾　悠","社員","takao_yu@visionary-inc.jp","080-9748-9466","高尾　悠","takao_yu@visionary-inc.jp","木村　真之介","shin.027.kisuke@gmail.com","080-2532-4484","萩原　邦人","hagihara_kunito@visionary-inc.jp"],
+["DS西中島店","9","4","高尾　悠","社員","takao_yu@visionary-inc.jp","080-9748-9466","高尾　悠","takao_yu@visionary-inc.jp","木村　真之介","shin.027.kisuke@gmail.com","080-2532-4484","萩原　邦人","hagihara_kunito@visionary-inc.jp"]
 ]
 
 shop = [
@@ -88,8 +86,8 @@ end
 
     gmail.deliver do
         to "#{deploy_member[i][5]}"
-        cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]}"
-        subject "【店舗詳細】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
+        cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]},#{deploy_member[i[13]]}"
+        subject "【店舗詳細】【OJT】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
         text_part do
             body "
 おつかれさまです
@@ -99,6 +97,15 @@ Visionary管理部です
 
 掲題の件ですが、以下に詳細を記載しますので
 ご確認ください。
+
+今回は#{deploy_member[i][9]}さんとの二人稼働です
+事前に連絡を取り合って勤務行いましょう
++------+-------------------------+
+| TEL  | #{deploy_member[i][11]} |
++------+-------------------------+
+| MAIL | #{deploy_member[i][10]} |
++------+-------------------------+
+
 
 詳細はこちら →  #{shop1[3]}
 店舗詳細一覧はこちらから　→　https://docs.google.com/spreadsheets/d/1KP_ZUicBn0Oz9Scz3Tshr9erbgembPaTRGzIdV0Vp8I/edit#gid=0
