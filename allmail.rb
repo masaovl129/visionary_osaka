@@ -7,7 +7,12 @@ gmail = Gmail.connect('masahiroyoshida1209@gmail.com', '8EejBC7Yj6bQwVkG')
 
 #配置メンバーとメールと日付と店舗
 deploy_member = [
-["DS八戸ノ里駅前店","8","15","吉田","社員","masao9090@gmail.com","080-9999-2192","吉田","masao9090@gmail.com","","","","",""]
+["DS光明池店","9","1","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""],
+["DS光明池店","9","2","東矢　祐輝","バ","7.108.jojo@gmail.com","090-3920-9976","服部　学","hattori_manabu@visionary-inc.jp","","","","",""],
+["DS光明池店","9","3","東矢　祐輝","バ","7.108.jojo@gmail.com","090-3920-9976","服部　学","hattori_manabu@visionary-inc.jp","","","","",""],
+["DS光明池店","9","4","備後　勇貴","社員","bingo_yuuki@visionary-inc.jp","080-1494-1041","萩原　章太","hagihara_shota@visionary-inc.jp","","","","",""],
+["DS光明池店","9","5","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""],
+["DS光明池店","9","6","高山　興一","バ","k4289jp@yahoo.co.jp","070-5666-7539","萩原　邦人","hagihara_kunito@visionary-inc.jp","","","","",""]
 ]
 
 shop = [
@@ -46,6 +51,7 @@ shop = [
 ["DS八日市店","9:40","10:00-18:00","https://drive.google.com/open?id=1UuTqQ7oSCGza9edcTopfOwDdOypR-uhpsunxS-Ra624&authuser=0","http://maps.google.co.jp/?q=ドコモショップ八日市店"],
 ["DS南彦根店","9:40","10:00-18:00","https://drive.google.com/open?id=1t7pXejBUtzX2tIEkx7i9P19aB0WtF0imuCC4JQiPlyk&authuser=0","http://maps.google.co.jp/?q=ドコモショップ南彦根店"],
 ["DS長浜店","9:40","10:00-18:00","https://docs.google.com/spreadsheets/d/1nM7Gm1l1t6-8SUsBdBjW0tqBkEjfAVErAazWHbs3oAI/edit?usp=sharing","http://maps.google.co.jp/?q=ドコモショップ長浜店"],
+["DS香芝店","10:40","11:00-19:00","https://docs.google.com/spreadsheets/d/1TzCB0pE2UFxiElLZbmw1ktIvMg8T3nmYKOtYUapHiFQ/edit#gid=1918856296"],
 ["DS香芝店","10:40","11:00-19:00","https://drive.google.com/open?id=1TzCB0pE2UFxiElLZbmw1ktIvMg8T3nmYKOtYUapHiFQ&authuser=0"],
 ["DS奈良中央店","10:40","11:00-19:00","https://drive.google.com/open?id=1OSQI0L5Zh2G-u7tJM8fYhVuenGodcwXNT-C7LLNNbsk&authuser=0"],
 ["DS五條店","10:40","11:00-19:00","https://drive.google.com/open?id=12Q04D5DHKURwZ7-1JfRCv8Dw7IUD6A_orKkPPSi8Rg8&authuser=0"],
@@ -57,12 +63,15 @@ shop = [
 ["DS姫路市役所前店","9:40","10:00-18:00","http://drive.google.com/open?id=1i0mX2Fq5_PXTWdULfZNPfijK2dHROBQboXDSwSpXr0s"],
 ["DS姫路花田店","10:40","11:00-19:00","http://drive.google.com/open?id=1GvXKhcRml3qln533sHeicp-GbspeudHcUHi14Q27NHA"],
 ["DS河原町丸太町店","10:10","10:30-18:30","https://docs.google.com/spreadsheets/d/1xKgPxNODQdCvwFF0kwrJgAuLA7fieGF4NID9slfiUe8/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ河原町丸太町店"],
-["DS深江橋店","10:40","https://docs.google.com/spreadsheets/d/1M2hBBDD9gCea2MQTcWYqiRJDBk0ofL3Rl7yd8jzJXo8/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ深江橋店"],
+["DS深江橋店","10:40","11:00~19:00","https://docs.google.com/spreadsheets/d/1M2hBBDD9gCea2MQTcWYqiRJDBk0ofL3Rl7yd8jzJXo8/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ深江橋店"],
 ["DS木津山田川店","10:10","10:30-18:30","https://docs.google.com/spreadsheets/d/1q4MqFObH4jbHhOTVHATY0qWJFwvqy1JSw94tWYM4op4/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ木津山田川店"],
 ["DS宇治槇島店","10:10","10:30-18:30","https://docs.google.com/spreadsheets/d/1-btAyM2hIqaYsGadegaZ7xTF0dBOZQLShjyiEoJU--0/edit","http://maps.google.co.jp/?q=ドコモショップ宇治槇島店"],
 ["DS大和高田店","10:40","11:00-19:00","https://docs.google.com/spreadsheets/d/1u7ac4_1WNSl6gREd-FBBO3qTLmva7yKnOxyhn3xBBG4/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ大和高田店"],
 ["DS西大寺店","10:40","11:00-19:00","https://docs.google.com/spreadsheets/d/1bgdy1tcxvQocDa8sabD_dQ_KyxkwrbJujz7-CZvZY3k/edit","http://maps.google.co.jp/?q=ドコモショップ西大寺店"],
-["DS八戸ノ里駅前店","10:40","11:00~19:00","https://docs.google.com/spreadsheets/d/1_Se7JEPu3mzeS2pZ5KjA32UkoZo_lIu4oP93K51l2Mg/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ八戸ノ里駅前店"]
+["DS八戸ノ里駅前店","10:40","11:00~19:00","https://docs.google.com/spreadsheets/d/1_Se7JEPu3mzeS2pZ5KjA32UkoZo_lIu4oP93K51l2Mg/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ八戸ノ里駅前店"],
+["DS桜井店","9:30","10:00-19:00","https://drive.google.com/open?id=1v6vGkNFXUUxJuttLZJ-cqpHfYUAN1FFbR6EnLZzyTa0"],
+["DS西中島店","10:40","11:00-19:00","https://docs.google.com/spreadsheets/d/1ItIVhdKiqNmboeKOju3yOA_lwaInyMQcAkYoFFE1MwY/edit#gid=940559031"],
+["DS泉の広場店","11:10","11:30-19:30","https://docs.google.com/spreadsheets/d/1Jw_Ze9BiASxStTQ3UjxtcIhDOfzxpDFBmkyx7N_mjSc/edit#gid=1918856296"]
 ]
 
 taiten = ["https://business.form-mailer.jp/fms/f443783738914",
@@ -80,22 +89,24 @@ end
     gmail.deliver do
         to "#{deploy_member[i][5]}"
         cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]}"
-        subject "テスト【店舗詳細】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
+        subject "【店舗詳細】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
         text_part do
             body "
 おつかれさまです
 Visionary管理部です
 
-            
 #{deploy_member[i][3]}さんへ
 
 掲題の件ですが、以下に詳細を記載しますので
 ご確認ください。
 
-詳細はこちら →  <a href=#{shop1[3]}>こんにちは</a>
+詳細はこちら →  #{shop1[3]}
 店舗詳細一覧はこちらから　→　https://docs.google.com/spreadsheets/d/1KP_ZUicBn0Oz9Scz3Tshr9erbgembPaTRGzIdV0Vp8I/edit#gid=0
 
-
+※本メールは配信専用です！
+もし何か質問や疑問があれば、
+promotion_management@visionary-inc.jp
+までメール送信よろしくお願いいたします
 
 本メールを受け取ったら事前報告の送信をお願いします。徹底しましょう！
 =========================================
