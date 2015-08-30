@@ -92,6 +92,7 @@ shop = [
 ]
 
 total = Array.new
+result = Array.new
 
 taiten = ["https://business.form-mailer.jp/fms/f443783738914",
     "https://business.form-mailer.jp/fms/67786d4545848"]
@@ -189,10 +190,17 @@ total << i
             end
         end
         if total.include?(i) == false
-    then puts "あれ？#{i}行の#{deploy_member[i][0]}の#{deploy_member[i][2]}日の分#{deploy_member[i][3]}におくれていませんよ？"
+    then result << "あれ？#{i}行の#{deploy_member[i][0]}の#{deploy_member[i][2]}日の分#{deploy_member[i][3]}におくれていませんよ？"
         elsif total.include?(i) == true
-    then puts "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}/#{Time.now.sec}に#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
+    then result << "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}/#{Time.now.sec}に#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
 end
     end
 puts "今週の配置の総数は計#{deploy_member.length}です"
 gmail.logout
+puts result
+
+file_name = "test.csv" 
+
+File.open(file_name, 'w') {|file|
+ file.write result
+}
