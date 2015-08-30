@@ -1,17 +1,36 @@
 # _*_ coding: utf-8 _*_
 require 'gmail'
+require 'csv'
 
 gmail = Gmail.connect('masahiroyoshida1209@gmail.com', '8EejBC7Yj6bQwVkG')
 
+#引数指定でテスト、店舗詳細、配置変更を記入
+
+deploy_member = Array.new
+deploy_member = CSV.read('list.csv')
+
+if ARGV[0] == "test"
+    promo = ["masao9090@gmail.com","【テスト】"]
+elsif ARGV[0] == "店舗詳細"
+    promo = ["promotion_management@visionary-inc.jp","【店舗詳細】"]
+elsif ARGV[0] == "配置変更"
+    promo = ["promotion_management@visionary-inc.jp","【配置変更】"]
+end
+
 #メンバーの名前とメールアドレス(いじる必要なし)
 
-#OJTリーダー
-
 #配置メンバーとメールと日付と店舗
+=begin
 deploy_member = [
-["DS泉の広場店","9","5","高尾　悠","社員","takao_yu@visionary-inc.jp","080-9748-9466","高尾　悠","takao_yu@visionary-inc.jp","木村　真之介","shin.027.kisuke@gmail.com","080-2532-4484","萩原　邦人","hagihara_kunito@visionary-inc.jp"],
-["DS西中島店","9","4","高尾　悠","社員","takao_yu@visionary-inc.jp","080-9748-9466","高尾　悠","takao_yu@visionary-inc.jp","木村　真之介","shin.027.kisuke@gmail.com","080-2532-4484","萩原　邦人","hagihara_kunito@visionary-inc.jp"]
+["DS天下茶屋店","9","1","吉田　真大","社員","masao9090@gmail.com","080-9999-2192","吉田　真大","masao9090@gmail.com","","","","",""],
+["DS天下茶屋店","9","1","吉田　真大","社員","masao9090@gmail.com","080-9999-2192","吉田　真大","masao9090@gmail.com","","","","",""]
 ]
+=end
+
+deploy_member = Array.new
+deploy_member = CSV.read('list.csv')
+
+
 
 shop = [
 ["DS姫路砥堀店","9:40","10:00~18:00","https://docs.google.com/spreadsheets/d/1iypmRo88eMOOey-gK6x72HBX0NVj1xVu7tJ6WHm-VZQ/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ姫路砥堀店"],
@@ -72,40 +91,34 @@ shop = [
 ["DS泉の広場店","11:10","11:30-19:30","https://docs.google.com/spreadsheets/d/1Jw_Ze9BiASxStTQ3UjxtcIhDOfzxpDFBmkyx7N_mjSc/edit#gid=1918856296"]
 ]
 
+total = Array.new
+
 taiten = ["https://business.form-mailer.jp/fms/f443783738914",
     "https://business.form-mailer.jp/fms/67786d4545848"]
 
 i=0
 for i in 0..deploy_member.length-1 do
     shop1 = shop.assoc(deploy_member[i][0])
+
+# バイトと非バイトの退店報告URLの分岐
 if deploy_member[i][4] == "バ"
     then taiten1 = taiten[1]
 elsif deploy_member[i][4] != "バ"
     then taiten1 = taiten[0]
 end
-
     gmail.deliver do
-        to "#{deploy_member[i][10]}"
-        cc "promotion_management@visionary-inc.jp, #{deploy_member[i][8]},#{deploy_member[i][13]}"
-        subject "【店舗詳細】【OJT】#{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
+        to "#{deploy_member[i][5]}"
+        cc "#{deploy_member[i][8]},#{promo[0]}"
+        subject "#{promo[1]} #{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
         text_part do
             body "
 おつかれさまです
 Visionary管理部です
 
-#{deploy_member[i][9]}さんへ
+#{deploy_member[i][3]}さんへ
 
 掲題の件ですが、以下に詳細を記載しますので
 ご確認ください。
-
-今回は#{deploy_member[i][3]}さんとの二人稼働です
-事前に連絡を取り合って勤務行いましょう
-+------+-------------------------+
-| TEL  | #{deploy_member[i][6]} |
-+------+-------------------------+
-| MAIL | #{deploy_member[i][5]} |
-+------+-------------------------+
-
 
 詳細はこちら →  #{shop1[3]}
 店舗詳細一覧はこちらから　→　https://docs.google.com/spreadsheets/d/1KP_ZUicBn0Oz9Scz3Tshr9erbgembPaTRGzIdV0Vp8I/edit#gid=0
@@ -172,7 +185,9 @@ https://business.form-mailer.jp/fms/6920e4e439580
 [HP]           http://visionary-inc.jp/
 ＋－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－＋
 "
-puts "#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
+puts "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}/#{Time.now.sec}に#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
+total << i
+puts total
             end 
         end
     end
