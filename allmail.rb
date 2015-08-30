@@ -185,11 +185,14 @@ https://business.form-mailer.jp/fms/6920e4e439580
 [HP]           http://visionary-inc.jp/
 ＋－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－＋
 "
-puts "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}/#{Time.now.sec}に#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
 total << i
-puts total
-            end 
+            end
         end
+        if total.include?(i) == false
+    then puts "あれ？#{i}行の#{deploy_member[i][0]}の#{deploy_member[i][2]}日の分#{deploy_member[i][3]}におくれていませんよ？"
+        elsif total.include?(i) == true
+    then puts "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}/#{Time.now.sec}に#{i}配列の#{deploy_member[i][0]}#{deploy_member[i][2]}日の#{deploy_member[i][3]}への周知が完了しました"
+end
     end
 puts "今週の配置の総数は計#{deploy_member.length}です"
 gmail.logout
