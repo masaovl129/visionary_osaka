@@ -17,20 +17,8 @@ elsif ARGV[0] == "配置変更"
     promo = ["promotion_management@visionary-inc.jp","【配置変更】"]
 end
 
-#メンバーの名前とメールアドレス(いじる必要なし)
-
-#配置メンバーとメールと日付と店舗
-=begin
-deploy_member = [
-["DS天下茶屋店","9","1","吉田　真大","社員","masao9090@gmail.com","080-9999-2192","吉田　真大","masao9090@gmail.com","","","","",""],
-["DS天下茶屋店","9","1","吉田　真大","社員","masao9090@gmail.com","080-9999-2192","吉田　真大","masao9090@gmail.com","","","","",""]
-]
-=end
-
 deploy_member = Array.new
 deploy_member = CSV.read('list.csv')
-
-
 
 shop = [
 ["DS姫路砥堀店","9:40","10:00~18:00","https://docs.google.com/spreadsheets/d/1iypmRo88eMOOey-gK6x72HBX0NVj1xVu7tJ6WHm-VZQ/edit#gid=1918856296","http://maps.google.co.jp/?q=ドコモショップ姫路砥堀店"],
@@ -107,12 +95,8 @@ if deploy_member[i][4] == "バ"
 elsif deploy_member[i][4] != "バ"
     then taiten1 = taiten[0]
 end
-    gmail.deliver do
-        to "#{deploy_member[i][5]}"
-        cc "#{deploy_member[i][8]},#{promo[0]}"
-        subject "#{promo[1]} #{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
-        text_part do
-            body "
+
+a = "
 おつかれさまです
 Visionary管理部です
 
@@ -186,6 +170,12 @@ https://business.form-mailer.jp/fms/6920e4e439580
 [HP]           http://visionary-inc.jp/
 ＋－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－＋
 "
+    gmail.deliver do
+        to "#{deploy_member[i][5]}"
+        cc "#{deploy_member[i][8]},#{promo[0]}"
+        subject "【再度】#{promo[1]} #{deploy_member[i][0].gsub('DS','ドコモショップ')} #{deploy_member[i][1]}月#{deploy_member[i][2]}日"
+        text_part do
+            body "#{a}"
 total << i
             end
         end
@@ -199,7 +189,7 @@ puts "今週の配置の総数は計#{deploy_member.length}です"
 gmail.logout
 puts result
 
-file_name = "test.csv" 
+file_name = "#{Time.now.month}/#{Time.now.day}/#{Time.now.hour}/#{Time.now.min}.txt"
 
 File.open(file_name, 'w') {|file|
  file.write result
